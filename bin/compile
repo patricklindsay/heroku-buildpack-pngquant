@@ -2,14 +2,9 @@
 
 echo "-----> Installing pngquant"
 
-git clone https://github.com/pornel/pngquant.git
-cd pngquant
-git checkout 2.8.2
+build_dir=$1
+working_dir=`pwd`
 
-
-BUILD_DIR=$1
-mkdir -p $BUILD_DIR/pngquant
-echo "-----> Running pngquant make & make install"
-./configure --prefix=$BUILD_DIR/pngquant
-make
-make install
+chmod -R +x $working_dir/vendor/bin/
+mkdir -p $build_dir/pngquant
+cp -R $working_dir/vendor/* $build_dir/pngquant/
